@@ -1,0 +1,190 @@
+/* Reset e base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text-color);
+  padding: 40px 20px;
+  min-height: 100vh;
+  background: linear-gradient(-45deg, #1e1e1e, #2e2e2e, #1a1a1a, #333);
+  background-size: 400% 400%;
+  animation: gradientBackground 12s ease infinite;
+}
+
+/* Animação de gradiente */
+@keyframes gradientBackground {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Tema escuro (padrão) */
+:root {
+  --bg-color: #1e1e1e;
+  --text-color: #fff;
+  --input-bg: #fff;
+  --input-color: #000;
+  --button-bg: #007BFF;
+  --button-hover: #0056b3;
+  --tab-bg: #2c2c2c;
+  --tab-active: #007BFF;
+  --select-bg: #1f1f1f;
+}
+
+/* Modo claro automático */
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg-color: #f4f4f4;
+    --text-color: #111;
+    --input-bg: #fff;
+    --input-color: #000;
+    --button-bg: #0066cc;
+    --button-hover: #004a99;
+    --tab-bg: #e0e0e0;
+    --tab-active: #0066cc;
+    --select-bg: #fff;
+  }
+
+  body {
+    background: linear-gradient(-45deg, #ffffff, #e0e0ff, #f5f5ff, #fff);
+    background-size: 400% 400%;
+    animation: gradientBackground 15s ease infinite;
+  }
+}
+
+/* Título principal */
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2.2rem;
+  color: var(--text-color);
+}
+
+/* Abas (tabs) */
+.tab-bar {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.tab-button {
+  background-color: var(--tab-bg);
+  border: 2px solid #444;
+  color: var(--text-color);
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.tab-button:hover {
+  opacity: 0.85;
+}
+
+.tab-button.active {
+  background-color: var(--tab-active);
+  color: white;
+  border-color: var(--tab-active);
+}
+
+/* Select menu */
+select {
+  display: block;
+  margin: 0 auto 30px auto;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: none;
+  background-color: var(--select-bg);
+  color: var(--text-color);
+  width: 250px;
+}
+
+/* Formulários */
+form.form-section {
+  background-color: var(--bg-color);
+  padding: 30px;
+  margin: 0 auto 30px auto;
+  border-radius: 10px;
+  max-width: 500px;
+  width: 100%;
+  min-height: 350px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Título do formulário */
+form.form-section h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 22px;
+  color: var(--text-color);
+}
+
+/* Inputs e selects */
+form.form-section input,
+form.form-section select,
+form.form-section textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  background-color: var(--input-bg);
+  color: var(--input-color);
+}
+
+/* Botão de envio */
+form.form-section button {
+  width: 100%;
+  padding: 14px;
+  background-color: var(--button-bg);
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form.form-section button:hover {
+  background-color: var(--button-hover);
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  .tab-bar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tab-button {
+    width: 80%;
+    text-align: center;
+    font-size: 0.95rem;
+  }
+
+  select {
+    width: 90%;
+  }
+
+  form.form-section {
+    padding: 20px;
+    min-height: auto;
+  }
+
+  form.form-section h2 {
+    font-size: 1.2rem;
+  }
+}
